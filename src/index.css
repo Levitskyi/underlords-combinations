@@ -15,6 +15,10 @@ code {
   monospace;
 }
 
+.white-color {
+	color: #fff;
+}
+
 .heroes-images {
 	display: inline-block;
 	padding: 15px;
@@ -26,10 +30,5 @@ code {
 }
 
 .heroes-name {
-	color: #fff;
 	font-weight: 700;
-}
-
-.heroes-class {
-	color: #fff;
 }

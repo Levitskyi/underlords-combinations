@@ -20,8 +20,8 @@ class Heroes extends Component {
 					{this.state.heroes.map(hero =>
 		        <div key={hero._id} className="heroes-images">
 							<img alt={hero.name} src={hero.imgUrl}/>
-							<p className="heroes-name">{hero.name.toUpperCase()}</p>
-							<p className="heroes-class">{hero.classList.map(i => i + ' ')}</p>
+							<p className="heroes-name white-color">{hero.name.toUpperCase()}</p>
+							<p className="heroes-class white-color">{hero.classList.map(i => i + ' ')}</p>
 		        </div>
 	      	)}
 			</div>

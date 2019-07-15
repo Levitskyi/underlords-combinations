@@ -2,16 +2,46 @@
 	color: #fff;
 }
 
-.heroes-images {
+.heroes-list {
+	text-align: center;
+}
+
+.heroes-list__block {
 	display: inline-block;
-	padding: 15px;
+	border: 1px solid transparent;
+	cursor: pointer;
+	padding: 10px;
+	margin: 20px 0 10px;
+	transition: all .3s ease-in-out;
+	filter: grayscale(85%);
+	height: 200px;
+	width: 155px;
+	overflow: hidden;
 }
 
-.heroes-images img {
-	height: 150px;
-	width: 150px;
+.heroes-list__block:hover {
+	border: 1px solid #fff;
+	background-color: #0e2f44;
+	transform: scale(1.1);
+	filter: grayscale(0%);
+	backface-visibility: hidden;
 }
 
-.heroes-name {
-	font-weight: 700;
+.heroes-list__heroes-images img {
+	border: 1px solid #fff;
+	height: 125px;
+	width: 125px;
+}
+
+.heroes-list__heroes-name {
+	font-size: 14px;
+	line-height: 1;
+}
+
+.heroes-list__heroes-class {
+	display: inline-block;
+}
+
+.heroes-list__heroes-class img {
+	height: 35px;
 }

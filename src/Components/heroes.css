@@ -14,8 +14,8 @@
 	margin: 20px 0 10px;
 	transition: all .3s ease-in-out;
 	filter: grayscale(85%);
-	height: 200px;
-	width: 155px;
+	height: 120px;
+	width: 90px;
 	overflow: hidden;
 }
 
@@ -29,15 +29,15 @@
 
 .heroes-list__heroes-images img {
 	border: 1px solid #fff;
-	height: 125px;
-	width: 125px;
+	height: 50px;
+	width: 50px;
 }
 
 .heroes-list__heroes-name {
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 1;
 }
 
 .heroes-list__heroes-class img {
-	height: 35px;
+	height: 20px;
 }

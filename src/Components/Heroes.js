@@ -20,11 +20,11 @@ class Heroes extends Component {
   			{this.state.heroes.map(hero =>
   				<div key={hero._id} className="heroes-list__block">
   					<div className="heroes-list__heroes-images">
-  						<img alt={hero.name} src={hero.imgUrl}/>
+  						<img alt={hero.name} src={hero.imgUrl} />
 						</div>
   					<h2 className="heroes-list__heroes-name white-color">{hero.name.toUpperCase()}</h2>
   					<div className="heroes-list__heroes-class">
-  						{hero.classList.map(hero_class => <img alt={hero_class._id} src={hero_class.imgUrl}/>)}
+  						{hero.classList.map(hero_class => <img key={hero_class._id} alt={hero_class.name} src={hero_class.imgUrl} />)}
 						</div>
   				</div>
   			)}

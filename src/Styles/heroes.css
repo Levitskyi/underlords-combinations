@@ -38,10 +38,6 @@
 	line-height: 1;
 }
 
-.heroes-list__heroes-class {
-	display: inline-block;
-}
-
 .heroes-list__heroes-class img {
 	height: 35px;
 }

@@ -1,0 +1,43 @@
+.white-color {
+	color: #fff;
+}
+
+.heroes-list {
+	text-align: center;
+}
+
+.heroes-list__block {
+	display: inline-block;
+	border: 1px solid transparent;
+	cursor: pointer;
+	padding: 10px;
+	margin: 20px 0 10px;
+	transition: all .3s ease-in-out;
+	filter: grayscale(85%);
+	height: 120px;
+	width: 90px;
+	overflow: hidden;
+}
+
+.heroes-list__block:hover {
+	border: 1px solid #fff;
+	background-color: #0e2f44;
+	transform: scale(1.1);
+	filter: grayscale(0%);
+	backface-visibility: hidden;
+}
+
+.heroes-list__heroes-images img {
+	border: 1px solid #fff;
+	height: 50px;
+	width: 50px;
+}
+
+.heroes-list__heroes-name {
+	font-size: 12px;
+	line-height: 1;
+}
+
+.heroes-list__heroes-class img {
+	height: 20px;
+}

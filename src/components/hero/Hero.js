@@ -17,6 +17,8 @@ class Hero extends Component {
 			})
 	}
 
+
+
 	render() {
 		const hero = this.state.hero;
 
@@ -26,12 +28,12 @@ class Hero extends Component {
 
 		return (
 				<div className="hero-block">
-					<div className="hero-block__hero-image"><img alt={hero.name} src={`/${hero.imgUrl}`} /></div>
+					<div className="hero-block__hero-image"><img key={hero._id} alt={hero.name} src={`/${hero.imgUrl}`} /></div>
 					<div className="hero-block__hero-info">
 						<h1 className="hero-block__hero-name white-color">{hero.name.toUpperCase()}</h1>
 						<h2 className="hero-block__hero-group white-color">{hero.group.toUpperCase()}</h2>
 						<div className="hero-block__hero-classes">
-							{hero.classList.map(hero_class => <img alt={hero_class} src={`/${hero_class}`} />)}
+							{hero.classList.map(hero_class => <img key={hero_class} alt={hero_class} src={`/${hero_class}`} />)}
 						</div>
 						<div className="hero-block__hero-detail-info">
 							<div className="hero-block__hero-tab white-color">
@@ -42,6 +44,9 @@ class Hero extends Component {
 								<img alt={hero.ability.name} src={`/${hero.ability.imgUrl}`} />
 								<h3 className="white-color">{hero.ability.name.toUpperCase()}</h3>
 								<p className="hero-block__ability-description white-color">{hero.ability.description}</p>
+							</div>
+							<div className="hero-block__hero-stats-info">
+								{Object.keys(hero.stats).map(stat => <p className="white-color">{stat[0].toUpperCase() + stat.slice(1)} {hero.stats[stat].join(' ')}</p>)}
 							</div>
 						</div>
 					</div>

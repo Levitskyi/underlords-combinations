@@ -7,15 +7,16 @@ class Nav extends Component {
 	render() {
 		return (
 			<header>
-	      <nav>
-        	<Link className="logo" to='/'>
+	      <nav className="menu">
+        	<Link className="menu__logo" to='/'>
             <img alt="logo" src={logomark} />
           </Link>
-          <Link className="link-style" to='/'>
-            <ul className="nav-links">
-              <li>Heroes</li>
-            </ul>
-          </Link>
+          
+          <ul className="menu__links">
+            <Link className="menu__link-style" to='/'>
+            	<li>Heroes</li>
+            </Link>
+          </ul>
 	      </nav>
 			</header>
 		)

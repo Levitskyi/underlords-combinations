@@ -1,34 +1,33 @@
-nav {
+.menu {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 0 30px;
+	padding: 0 30px;
 	color: #fff;
 	text-transform: uppercase;
 }
 
-.logo img {
+.menu__logo img {
 	height: 50px;
 	width: 80px;
 }
 
-.nav-links {
+.menu__links {
 	display: flex;
 	justify-content: space-around;
-	align-items: center;
 	list-style: none;
+}
+
+.menu__link-style {
 	font-weight: 700;
 	cursor: pointer;
 	padding: 10px 15px;
 	border: 1px solid transparent;
 	transition: all .3s;
-}
-
-.nav-links:hover {
-	background-color: #00BFFF;
-}
-
-.link-style {
 	text-decoration: none;
 	color: white;
+}
+
+.menu__link-style:hover {
+	background-color: #d07c19;
 }

@@ -2,6 +2,10 @@
 	color: #fff;
 }
 
+.text-uppercase {
+	text-transform: uppercase;
+}
+
 .hero-block {
 	display: flex;
   align-items: center;
@@ -9,24 +13,63 @@
   padding: 0 50px;
 }
 
-.hero-block__hero-classes {
-	display: inline-block;
-}
-
 .hero-block__hero-info {
 	margin-left: 30px;
 	max-width: 500px;
 }
 
-.hero-block__hero-tab h2 {
-	display: inline-block;
-	cursor: pointer;
-}
-.hero-block__hero-tab h2:nth-child(2) {
-	margin-left: 50px;
+.hero-block__hero-classes img {
+	height: 35px;
 }
 
-.hero-block__ability-description {
-	font-size: 14px;
-	font-weight: 500;
+.hero-block__hero-titles {
+	display: inline-flex;
 }
+
+.hero-block__hero-titles h2 {
+	cursor: pointer;
+}
+
+.hero-block__hero-titles h2:nth-child(1) {
+	margin-right: 50px;
+}
+
+.hero-block__hero-ability-info {
+	display: flex;
+}
+
+.hero-block__hero-ability-info img {
+	height: 70px;
+	margin-right: 10px;
+}
+
+.hero-block__ability-description h3,
+.hero-block__ability-description p {
+	margin: 0;
+}
+
+.hero-block__ability-description p,
+.hero-block__stats-description p {
+	font-size: 14px;
+	font-weight: 700;
+	color: #7d8097;
+}
+
+.hero-block__stats-description {
+	text-transform: capitalize;
+}
+
+@media(max-width: 767px) {
+	.hero-block {
+		flex-direction: column;
+	}.hero-block__hero-info {
+		margin-left: 0;
+	}.hero-block__hero-image {
+		margin-top: 50px;
+	}.hero-block__hero-name,
+	.hero-block__hero-group,
+	.hero-block__hero-classes,
+	.hero-block__hero-titles {
+		display: flex;
+		justify-content: center;
+}}

@@ -41,6 +41,7 @@
 .hero-block__hero-ability-info img {
 	height: 70px;
 	margin-right: 10px;
+	margin-top: 7px;
 }
 
 .hero-block__ability-description h3,
@@ -51,7 +52,7 @@
 .hero-block__ability-description p,
 .hero-block__stats-description p {
 	font-size: 14px;
-	font-weight: 700;
+	font-weight: 600;
 	color: #7d8097;
 }
 

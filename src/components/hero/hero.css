@@ -8,29 +8,58 @@
 
 .hero-block {
 	display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 0 50px;
+  padding: 50px;
 }
 
 .hero-block__hero-info {
 	margin-left: 30px;
-	max-width: 500px;
+	width: 500px;
+}
+
+.hero-block__hero-name,
+.hero-block__ability-description h3,
+.hero-block__ability-description p,
+.hero-block__hero-stats-info h4 {
+	margin: 0;
 }
 
 .hero-block__hero-classes img {
 	height: 35px;
 }
 
-.hero-block__hero-titles {
-	display: inline-flex;
+.hero-block__hero-toggle-buttons {
+	display: flex;
 }
 
-.hero-block__hero-titles h2 {
+.hero-block__hero-toggle-buttons button {
+	border: none;
+	background: url(../../assets/images/brush-stroke-banner.png) no-repeat;
+	background-size: 100% 100%;
+	background-color: transparent;
+	color: #fff;
 	cursor: pointer;
+	font-weight: 600;
+	font-size: 20px;
+	padding: 8px 30px;
+	margin: 15px 0;
+	opacity: 0.3;
 }
 
-.hero-block__hero-titles h2:nth-child(1) {
+.hero-block__hero-toggle-buttons button:hover {
+	opacity: 0.6;
+}
+
+.hero-block__hero-toggle-buttons .active-button,
+.hero-block__hero-toggle-buttons .active-button:hover {
+	opacity: 1;
+}
+
+.hero-block__hero-toggle-buttons button:focus {
+	outline: none;
+}
+
+.hero-block__hero-toggle-buttons button:nth-child(1) {
 	margin-right: 50px;
 }
 
@@ -39,14 +68,9 @@
 }
 
 .hero-block__hero-ability-info img {
-	height: 70px;
+	height: 50px;
 	margin-right: 10px;
-	margin-top: 7px;
-}
-
-.hero-block__ability-description h3,
-.hero-block__ability-description p {
-	margin: 0;
+	margin-top: 5px;
 }
 
 .hero-block__ability-description p,
@@ -63,14 +87,18 @@
 @media(max-width: 767px) {
 	.hero-block {
 		flex-direction: column;
+		align-items: center;
 	}.hero-block__hero-info {
 		margin-left: 0;
-	}.hero-block__hero-image {
-		margin-top: 50px;
+		width: auto;
 	}.hero-block__hero-name,
 	.hero-block__hero-group,
 	.hero-block__hero-classes,
-	.hero-block__hero-titles {
+	.hero-block__hero-toggle-buttons {
 		display: flex;
 		justify-content: center;
-}}
+	}}
+
+.hidden-content {
+	display: none;
+}

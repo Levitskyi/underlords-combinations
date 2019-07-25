@@ -8,6 +8,9 @@ body {
 	background: url(./assets/images/background-image.jpg) center fixed;
 	-webkit-background-size: cover;
 	background-size: cover;
+}
+
+* {
 	font-family: 'Montserrat', sans-serif;
 }
 

@@ -10,6 +10,11 @@
 .menu__logo img {
 	height: 50px;
 	width: 80px;
+	transition-duration: 0.3s;
+}
+
+.menu__logo img:hover {
+	opacity: 0.6;
 }
 
 .menu__links {

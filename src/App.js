@@ -8,13 +8,13 @@ import Hero from './components/hero/Hero';
 class App extends Component {
   render() {
     return ( 
-      <Router>
+        <Router>
     		<Nav />
-	  		<Switch>
-	  			<Route path="/" exact component={Heroes} />
-	  			<Route path="/heroes/:id" component={Hero} />
-	  		</Switch>
-      </Router>
+      		<Switch>
+      			<Route path="/" exact component={Heroes} />
+      			<Route path="/heroes/:id" component={Hero} />
+      		</Switch>
+        </Router>
     );
   }
 }

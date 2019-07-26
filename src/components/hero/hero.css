@@ -8,8 +8,8 @@
 
 .hero-block {
 	display: flex;
-  justify-content: center;
-  padding: 50px;
+	justify-content: center;
+	padding: 50px;
 }
 
 .hero-block__hero-info {
@@ -91,14 +91,11 @@
 	}.hero-block__hero-info {
 		margin-left: 0;
 		width: auto;
+		max-width: 500px;
 	}.hero-block__hero-name,
 	.hero-block__hero-group,
 	.hero-block__hero-classes,
 	.hero-block__hero-toggle-buttons {
 		display: flex;
 		justify-content: center;
-	}}
-
-.hidden-content {
-	display: none;
-}
+}}

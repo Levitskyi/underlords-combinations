@@ -1,0 +1,38 @@
+.menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 30px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.menu__logo img {
+	height: 50px;
+	width: 80px;
+	transition-duration: 0.3s;
+}
+
+.menu__logo img:hover {
+	opacity: 0.6;
+}
+
+.menu__links {
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+}
+
+.menu__link-style {
+	font-weight: 600;
+	cursor: pointer;
+	padding: 10px 15px;
+	border: 1px solid transparent;
+	transition: all .3s;
+	text-decoration: none;
+	color: white;
+}
+
+.menu__link-style:hover {
+	background-color: #d07c19;
+}

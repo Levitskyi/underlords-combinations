@@ -6,14 +6,13 @@ class Hero extends Component {
     state = {
         hero: {},
         isLoading: true,
-        isActive: 'ability'
+        activeTab: "ability"
     };
 
     toggleButton = (active) => {
         this.setState({
-            isActive: active.target.textContent.toLowerCase(),
+            activeTab: active
         });
-        console.log(active.target.textContent);
     }
 
     componentDidMount() {
@@ -26,7 +25,7 @@ class Hero extends Component {
     }
 
     render() {
-        const { hero, isLoading, isActive } = this.state;
+        const { hero, isLoading, activeTab } = this.state;
 
         if (isLoading) {
             return <div className="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -38,32 +37,33 @@ class Hero extends Component {
                 <img key={hero._id} alt={hero.name} src={`/${hero.imgUrl}`} />
             </div>
             <div className="hero-block__hero-info">
-                <h1 className="hero-block__hero-name white-color">{hero.name.toUpperCase()}</h1>
-                <h2 className="hero-block__hero-group white-color">{hero.group.toUpperCase()}</h2>
+                <h1 className="hero-block__hero-name white-color text-uppercase">{hero.name}</h1>
+                <h2 className="hero-block__hero-group white-color text-uppercase">{hero.group}</h2>
                 <div className="hero-block__hero-classes">
                     {hero.classList.map(hero_class => <img key={hero_class._id} alt={hero_class.name} src={`/${hero_class.imgUrl}`} />)}
                 </div>
                 <div className="hero-block__hero-detail-info">
                     <div className="hero-block__hero-toggle-buttons white-color">
-                        <button onClick={this.toggleButton} className={isActive === 'ability' ? "active-button" : null}>ABILITY</button>
-                        <button onClick={this.toggleButton} className={isActive === 'stats' ? "active-button" : null}>STATS</button>
-                        <button onClick={this.toggleButton} className={isActive === 'test' ? "active-button" : null}>TEST</button>
+                        <button onClick={() => this.toggleButton("ability")} className={activeTab === "ability" ? "active-button" : null}>ABILITY</button>
+                        <button onClick={() => this.toggleButton("stats")} className={activeTab === "stats" ? "active-button" : null}>STATS</button>
+                        <button onClick={() => this.toggleButton("test")} className={activeTab === "test" ? "active-button" : null}>TEST</button>
                     </div>
-                    { isActive === 'ability' ?
+                    { activeTab === "ability" ?
                         (<div className={"hero-block__hero-ability-info"}>
                             <img alt={hero.ability.name} src={`/${hero.ability.imgUrl}`} />
                             <div className="hero-block__ability-description white-color">
-                                <h3>{hero.ability.name.toUpperCase()}</h3>
+                                <h3 className="text-uppercase">{hero.ability.name}</h3>
                                 <p>{hero.ability.description}</p>
                             </div>
                         </div>)
-                    :
+                    : activeTab === "stats" ?
                         (<div className={"hero-block__hero-stats-info"} >
                             <h4 className="white-color text-uppercase">Level</h4>
                             <div className="hero-block__stats-description">
-                                {Object.keys(hero.stats).map(stat => <p>{stat} {hero.stats[stat].join(' ')}</p>)}
+                                {Object.keys(hero.stats).map(stat => <p>{stat} {hero.stats[stat].join(" ")}</p>)}
                             </div>
                         </div>)
+                    : null
                     }
                 </div>
             </div>

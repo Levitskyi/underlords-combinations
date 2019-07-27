@@ -6,17 +6,17 @@ import Heroes from './components/heroes/Heroes';
 import Hero from './components/hero/Hero';
 
 class App extends Component {
-  render() {
-    return ( 
-        <Router>
-    		<Nav />
-      		<Switch>
-      			<Route path="/" exact component={Heroes} />
-      			<Route path="/heroes/:id" component={Hero} />
-      		</Switch>
-        </Router>
-    );
-  }
+    render() {
+        return ( 
+            <Router>
+        		<Nav />
+          		<Switch>
+          			<Route path="/" exact component={Heroes} />
+          			<Route path="/heroes/:id" component={Hero} />
+          		</Switch>
+            </Router>
+        );
+    }
 }
 
 export default App;

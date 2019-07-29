@@ -5,6 +5,8 @@
 	padding: 0 30px;
 	color: #fff;
 	text-transform: uppercase;
+	max-width: 1440px;
+	margin: 0 auto;
 }
 
 .menu__logo img {

@@ -20,7 +20,7 @@ class Hero extends Component {
             .then(res => res.json())
             .then(({ data }) => {
                 console.log(data);
-                this.setState( { hero: data, isLoading: false});
+                this.setState( { hero: data, isLoading: false } );
             })
     }
 

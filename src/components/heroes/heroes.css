@@ -25,7 +25,8 @@
 	overflow: hidden;
 }
 
-.heroes-list__block:hover {
+.heroes-list__block:hover,
+.heroes-list__block:active {
 	border: 1px solid #fff;
 	background-color: #0e2f44;
 	transform: scale(1.1);
@@ -46,8 +47,4 @@
 
 .heroes-list__heroes-class img {
 	height: 20px;
-}
-
-.heroes-list__test {
-	background-color: #fff;
 }

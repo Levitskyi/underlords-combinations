@@ -48,3 +48,13 @@
 .heroes-list__heroes-class img {
 	height: 20px;
 }
+
+.drop-area {
+	border: 5px solid red;
+	height: 100px;
+	width: 800px;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 25px 15px;
+	margin: 0 auto;
+}

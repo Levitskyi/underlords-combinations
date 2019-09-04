@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-
 import Heroes from '../heroes/Heroes';
-
+import AllyCounts from '../AllyCounts/AllyCounts';
 
 const move = (source, destination, droppableSource, droppableDestination) => {
 	const sourceClone = Array.from(source);
@@ -27,6 +26,24 @@ const reorder = (list, startIndex, endIndex) => {
 	return result;
 };
 
+const calculateAlliances = selected => {
+	let alliances = {};
+	selected.forEach(hero => {
+		hero.classList.forEach(elem => {
+			const key = elem.name;
+			const count = alliances[key] ? alliances[key].count + 1 : 1;
+			alliances = {
+				...alliances,
+				[key]: {
+					...elem,
+					count
+				}
+			}
+		});
+	});
+	return alliances;
+};
+
 const getListStyle = isDraggingOver => ({
     background: isDraggingOver ? '#d07c19' : 'transparent'
 });
@@ -34,30 +51,50 @@ const getListStyle = isDraggingOver => ({
 class Home extends Component {
 	state = {
 		heroes: [],
-		selected: []
+		selected: [],
+		alliances: {}
 	};
 
 	componentDidMount() {
 		fetch('/heroes')
 			.then(res => res.json())
 			.then(({ data }) => {
-				console.log(data);
-				this.setState( { heroes: data } );
+
+				// should be deleted after correcting data from backend
+				const newData = data.map(elem => {
+					const newClassList = elem.classList.map(list => {
+						const newList = {
+							...list,
+							rows: 2,
+							step: 3,
+							color: '#4977a6'
+						};
+						return newList
+					});
+					return {
+						...elem,
+						classList: newClassList
+					};
+				});
+
+				this.setState( { heroes: newData } );
 
 			})
 	}
 
 	onDragEnd = result => {
 		const { destination, source } = result;
-		console.log(result);
 
 		if (!destination) {
 			return;
 		}
+
 		if (destination.droppableId === source.droppableId &&
 			destination.index === source.index) {
 			return;
 		}
+
+		if (destination.droppableId === 'selected' && this.state.selected.length >= 10) return;
 
 		if (source.droppableId === destination.droppableId) {
 			const items = reorder(
@@ -78,34 +115,42 @@ class Home extends Component {
 			);
 
 			const { heroes, selected } = result;
+			const alliances = calculateAlliances(selected);
 
 			this.setState({
 				heroes,
-				selected
+				selected,
+				alliances
 			});
 		}
-	}
+	};
 
 	render() {
+		const { heroes, alliances, selected } = this.state;
 		return (
-			<DragDropContext onDragEnd={this.onDragEnd}>
-				<Droppable droppableId="heroes" direction="horizontal">
-					{provided => (
-						<div ref={provided.innerRef} {...provided.droppableProps} className="heroes-list">
-							<Heroes heroes={this.state.heroes} />
-						{provided.placeholder}
-						</div>
-					)}
-				</Droppable>
-				<Droppable droppableId="selected" direction="horizontal">
-					{(provided, snapshot) => (
-						<div className="drop-area" ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}>
-							 <Heroes heroes={this.state.selected} />
-						{provided.placeholder}
-						</div>
-					)}
-				</Droppable>
-			</DragDropContext>
+			<div>
+				<div className="alliances-container">
+					{Object.keys(alliances).map(key => <AllyCounts key={key} {...alliances[key]} />)}
+				</div>
+				<DragDropContext onDragEnd={this.onDragEnd}>
+					<Droppable droppableId="heroes" direction="horizontal">
+						{provided => (
+							<div ref={provided.innerRef} {...provided.droppableProps} className="heroes-list">
+								<Heroes heroes={heroes} />
+								{provided.placeholder}
+							</div>
+						)}
+					</Droppable>
+					<Droppable droppableId="selected" direction="horizontal">
+						{(provided, snapshot) => (
+							<div className="drop-area" ref={provided.innerRef} style={getListStyle(snapshot.isDraggingOver)}>
+								<Heroes heroes={selected} />
+								{provided.placeholder}
+							</div>
+						)}
+					</Droppable>
+				</DragDropContext>
+			</div>
 		)
 	}
 }

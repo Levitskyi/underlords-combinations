@@ -59,20 +59,16 @@
 
 .drop-area {
 	border: 2px solid #fff;
-	min-height: 190px;
-	max-width: 795px;
+	height: 190px;
+	width: 1124px;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	padding: 20px 10px;
-
-	width: 90%;
-	position: absolute;
-	/*bottom: 25px;*/
-	left: 50%;
-	transform: translateX(-50%);
+	position: fixed;
+	bottom: 25px;
+	left: calc(50% - 512px);
 }
-
 
 #root {
 	position: relative;

@@ -45,3 +45,10 @@
 .alliance-row-item.empty {
     background: #282c34 !important;
 }
+
+.alliances-container {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}

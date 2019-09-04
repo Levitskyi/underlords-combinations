@@ -9,31 +9,36 @@
 .heroes-list {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
 	padding: 25px 15px;
+	max-width: 1600px;
+	margin: 0 auto;
 }
 
 .heroes-list__block {
-	text-align: center;
-	border: 1px solid transparent;
-	cursor: pointer;
-	padding: 10px;
-	transition: all .3s ease-in-out;
-	filter: grayscale(85%);
-	height: 120px;
-	width: 90px;
-	overflow: hidden;
+	margin: 5px;
 }
 
-.heroes-list__block:hover {
+.heroes-list__block-inner {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 	border: 1px solid #fff;
+	cursor: pointer;
+	height: 135px;
+	width: 100px;
+	transition: all .3s ease-in-out;
+	overflow: hidden;
 	background-color: #0e2f44;
-	transform: scale(1.1);
-	filter: grayscale(0%);
-	backface-visibility: hidden;
+}
+
+.heroes-list__block-inner:active {
+	box-shadow: 0 0 15px #fff;
 }
 
 .heroes-list__heroes-images img {
+	display: block;
 	border: 1px solid #fff;
 	height: 50px;
 	width: 50px;
@@ -44,10 +49,27 @@
 	line-height: 1;
 }
 
+.heroes-list__heroes-class {
+	display: flex;
+}
+
 .heroes-list__heroes-class img {
 	height: 20px;
 }
 
-.heroes-list__test {
-	background-color: #fff;
+.drop-area {
+	border: 2px solid #fff;
+	height: 190px;
+	width: 1124px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 20px 10px;
+	position: fixed;
+	bottom: 25px;
+	left: calc(50% - 512px);
+}
+
+#root {
+	position: relative;
 }
